@@ -1,0 +1,19 @@
+aside{
+  width: 300px;
+  height: calc(100vh - var(--navbar-height));
+  transition: 0.2s;
+  background-color: var(--inverted-bg-color);
+  position: relative;
+}
+
+.collapsed{
+  width: 75px;
+}
+
+.switcher{
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
