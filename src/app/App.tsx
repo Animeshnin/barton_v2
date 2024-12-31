@@ -3,26 +3,31 @@ import {useTheme} from "@/app/providers/ThemeProvider";
 import AppRouter from "./providers/router";
 import {Navbar} from "@/widgets/Navbar";
 import {Sidebar} from "@/widgets/Sidebar";
-import {Suspense, useEffect, useState} from "react";
+import {Suspense, } from "react";
+import React from "react";
+
 
 
 function App() {
 
     const {theme} = useTheme()
 
-    const [error, setError] = useState(false);
 
-    const clickError = () => setError(true)
+    // const [error, setError] = useState(false);
 
-    useEffect(() => {
-        if(error){
-            throw new Error()
-        }
-    }, [error])
+    // const clickError = () => setError(true)
+
+    // useEffect(() => {
+    //     if(error){
+    //         throw new Error()
+    //     }
+    // }, [error])
+
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={''}>
-                <button onClick={clickError}>throwError</button>
+
                 <Navbar/>
                 <div className={'content-path'}>
                     <Sidebar/>

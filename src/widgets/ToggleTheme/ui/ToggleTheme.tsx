@@ -1,6 +1,7 @@
 import {useTheme} from "@/app/providers/ThemeProvider";
 import ToggleThemePNG from '@/shared/assets/icon/toggleTheme.png'
-import Button, {ThemeButton} from "@/shared/ui/Button/Button.tsx";
+import Button, {ButtonTheme} from "@/shared/ui/Button/Button.tsx";
+import React from "react";
 
 
 
@@ -8,7 +9,7 @@ import Button, {ThemeButton} from "@/shared/ui/Button/Button.tsx";
 export function ToggleTheme() {
     const {toggleTheme} = useTheme()
     return (
-            <Button theme={ThemeButton.CLEAR} onClick={toggleTheme}>
+            <Button theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
                 <img src={ToggleThemePNG} alt=""/>
             </Button>
 

@@ -34,18 +34,19 @@ const config: Config = {
     "json",
     "node"
   ],
-  testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
-  ],
 
   preset: "ts-jest",
   transform: {
-    "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    '^.+\.tsx?$': 'ts-jest',
   },
   transformIgnorePatterns: [
     "node_modules/(?!variables/.*)"
-  ]
+  ],
+  setupFilesAfterEnv:
+      ['<rootDir>/setupTests.ts'],
+  testMatch: [
+    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+  ],
 
 
   // Indicates whether the coverage information should be collected while executing the test

@@ -20,7 +20,7 @@ describe('classNames', () => {
 
     test('with additional class', () => {
         const expected = 'someClass class1 class2 hovered';
-        expect(classNames('someClass', {hovered: true, scrollbars: true}, ['class1', 'class2'])).toBe(expected);
+        expect(classNames('someClass', {hovered: true, scrollbars: false}, ['class1', 'class2'])).toBe(expected);
     })
 })
 

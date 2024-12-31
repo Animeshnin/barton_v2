@@ -1,17 +1,28 @@
 import {classNames} from "@/shared/lib/classNames/classNames.ts";
 import cls from './NavBar.module.scss'
-import AppLink, {AppLinkTheme} from "@/shared/ui/AppLink/AppLink.tsx";
+import React, {useCallback, useState} from "react";
+import Button, {ButtonTheme} from "@/shared/ui/Button/Button.tsx";
+import  LoginModal from "@/features/AuthByUsername/ui/LoginModal/LoginModal.tsx";
 
 interface NavbarProps {
     className?: string;
 }
 
 export function Navbar({className}: NavbarProps) {
+    const [openModalSignUpModal, setOpenModalSignUpModal] = useState<boolean>(false);
+
+    const onCloseModal = useCallback(() => {
+        setOpenModalSignUpModal(false );
+    }, [])
+
+    const onShowModal = useCallback(() => {
+        setOpenModalSignUpModal(true );
+    }, [])
     return (
         <nav className={classNames(cls.Navbar, {} ,[className!])}>
             <div className={cls.links}>
-                <AppLink theme={AppLinkTheme.PRIMARY} to={'/about'} className={cls.mainLink}>about</AppLink>
-                <AppLink theme={AppLinkTheme.PRIMARY}  to={'/'} >main</AppLink>
+                <Button theme={ButtonTheme.CLEAR} onClick={onShowModal}>Войти</Button>
+                <LoginModal  isOpen={openModalSignUpModal} onClose={onCloseModal}/>
             </div>
 
         </nav>
